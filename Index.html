@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="id" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Syukril Hakim - Personal Space</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter & JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-4px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom scrollbar untuk terminal & halaman */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: rgba(113, 113, 122, 0.3);
+            border-radius: 9999px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(113, 113, 122, 0.5);
+        }
+        body {
+            background-color: #09090b;
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(16, 185, 129, 0.08) 0px, transparent 50%),
+                radial-gradient(at 100% 0%, rgba(59, 130, 246, 0.08) 0px, transparent 50%);
+            background-attachment: fixed;
+        }
+        .bento-card {
+            background: rgba(24, 24, 27, 0.65);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .bento-card:hover {
+            border-color: rgba(255, 255, 255, 0.18);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.6);
+        }
+    </style>
+</head>
+<body class="text-zinc-100 font-sans antialiased min-h-screen flex items-center justify-center p-4 sm:p-6 md:p-10 selection:bg-emerald-500/30 selection:text-emerald-200">
+
+    <main class="w-full max-w-4xl mx-auto space-y-4">
+        
+        <!-- Header Bar -->
+        <header class="flex items-center justify-between px-2 py-1 text-xs font-mono text-zinc-400">
+            <div class="flex items-center gap-2">
+                <span class="relative flex h-2 w-2">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                </span>
+                <span>ONLINE // JAMBI, ID</span>
+            </div>
+            <div id="clock" class="text-zinc-400">00:00:00 WIB</div>
+        </header>
+
+        <!-- Bento Grid Container -->
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-4">
+
+            <!-- 1. Hero Profile Card (Span 8) -->
+            <section class="bento-card rounded-3xl p-6 sm:p-8 md:col-span-8 flex flex-col justify-between relative overflow-hidden">
+                <div class="flex flex-col sm:flex-row sm:items-center gap-5">
+                    <!-- Avatar dengan Inisial / Monogram -->
+                    <div class="relative shrink-0">
+                        <div class="w-20 h-20 rounded-2xl bg-gradient-to-br from-emerald-500/20 via-teal-500/10 to-zinc-800 border border-emerald-500/30 flex items-center justify-center text-2xl font-bold font-mono text-emerald-400 shadow-inner">
+                            SH
+                        </div>
+                        <div class="absolute -bottom-1 -right-1 bg-zinc-900 border border-zinc-700 rounded-full p-1" title="Verified Builder">
+                            <i data-lucide="code-2" class="w-3.5 h-3.5 text-emerald-400"></i>
+                        </div>
+                    </div>
+
+                    <div class="space-y-1.5">
+                        <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-mono bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                            <span>Information Systems Student</span>
+                        </div>
+                        <h1 class="text-2xl sm:text-3xl font-bold tracking-tight text-white">
+                            Syukril Hakim
+                        </h1>
+                        <p class="text-sm text-zinc-400 leading-relaxed max-w-md">
+                            Membangun antarmuka digital, eksplorasi aplikasi mobile, dan merakit solusi berbasis sistem informasi.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Quick Action Buttons -->
+                <div class="mt-6 pt-5 border-t border-white/5 flex flex-wrap items-center gap-2.5">
+                    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white text-zinc-950 font-medium text-xs hover:bg-zinc-200 transition">
+                        <i data-lucide="instagram" class="w-4 h-4"></i>
+                        <span>Instagram</span>
+                    </a>
+                    <a href="https://github.com/sshhkimm4" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-zinc-800/90 hover:bg-zinc-800 text-zinc-200 border border-white/10 font-medium text-xs transition">
+                        <i data-lucide="github" class="w-4 h-4"></i>
+                        <span>GitHub</span>
+                    </a>
+                    <button onclick="copyEmail()" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-zinc-800/50 hover:bg-zinc-800 text-zinc-300 border border-white/5 font-medium text-xs transition cursor-pointer">
+                        <i data-lucide="mail" class="w-4 h-4 text-emerald-400"></i>
+                        <span id="copy-text">Salin Kontak</span>
+                    </button>
+                </div>
+            </section>
+
+            <!-- 2. Currently / Focus Card (Span 4) -->
+            <section class="bento-card rounded-3xl p-6 md:col-span-4 flex flex-col justify-between bg-gradient-to-b from-zinc-900/80 to-zinc-950/80">
+                <div class="flex items-center justify-between">
+                    <span class="text-xs font-mono uppercase tracking-wider text-zinc-400">Fokus Saat Ini</span>
+                    <i data-lucide="sparkles" class="w-4 h-4 text-amber-400"></i>
+                </div>
+                
+                <div class="my-4 space-y-3">
+                    <div class="p-3 rounded-2xl bg-white/[0.03] border border-white/5">
+                        <div class="text-xs text-zinc-400 mb-0.5">Akademik & Riset</div>
+                        <div class="text-sm font-semibold text-zinc-100">Sistem Informasi • UIN STS Jambi</div>
+                    </div>
+                    <div class="p-3 rounded-2xl bg-white/[0.03] border border-white/5">
+                        <div class="text-xs text-zinc-400 mb-0.5">Eksplorasi Teknis</div>
+                        <div class="text-sm font-semibold text-zinc-100">Flutter, Web & DIY Hardware</div>
+                    </div>
+                </div>
+
+                <div class="text-[11px] font-mono text-zinc-500 flex items-center gap-1.5">
+                    <i data-lucide="git-branch" class="w-3.5 h-3.5 text-emerald-500"></i>
+                    <span>v2.0 • Personal Space</span>
+                </div>
+            </section>
+
+            <!-- 3. Social & Links Grid (Span 6) -->
+            <section class="bento-card rounded-3xl p-6 md:col-span-6 space-y-3">
+                <div class="flex items-center justify-between mb-1">
+                    <h2 class="text-sm font-semibold text-zinc-200 flex items-center gap-2">
+                        <i data-lucide="link" class="w-4 h-4 text-emerald-400"></i>
+                        <span>Tautan Utama</span>
+                    </h2>
+                    <span class="text-[11px] font-mono text-zinc-500">DIRECT LINKS</span>
+                </div>
+
+                <div class="space-y-2.5">
+                    <a href="https://github.com/sshhkimm4" target="_blank" rel="noopener noreferrer" class="group flex items-center justify-between p-3.5 rounded-2xl bg-zinc-900/80 hover:bg-zinc-800/90 border border-white/5 hover:border-emerald-500/30 transition">
+                        <div class="flex items-center gap-3">
+                            <div class="w-9 h-9 rounded-xl bg-zinc-800 flex items-center justify-center text-zinc-300 group-hover:text-emerald-400 transition">
+                                <i data-lucide="folder-git-2" class="w-4 h-4"></i>
+                            </div>
+                            <div>
+                                <div class="text-sm font-medium text-zinc-100">Repositori & Kode</div>
+                                <div class="text-xs text-zinc-400">github.com/sshhkimm4</div>
+                            </div>
+                        </div>
+                        <i data-lucide="arrow-up-right" class="w-4 h-4 text-zinc-500 group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition"></i>
+                    </a>
+
+                    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="group flex items-center justify-between p-3.5 rounded-2xl bg-zinc-900/80 hover:bg-zinc-800/90 border border-white/5 hover:border-pink-500/30 transition">
+                        <div class="flex items-center gap-3">
+                            <div class="w-9 h-9 rounded-xl bg-zinc-800 flex items-center justify-center text-zinc-300 group-hover:text-pink-400 transition">
+                                <i data-lucide="camera" class="w-4 h-4"></i>
+                            </div>
+                            <div>
+                                <div class="text-sm font-medium text-zinc-100">Instagram</div>
+                                <div class="text-xs text-zinc-400">Aktivitas & Keseharian</div>
+                            </div>
+                        </div>
+                        <i data-lucide="arrow-up-right" class="w-4 h-4 text-zinc-500 group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition"></i>
+                    </a>
+
+                    <a href="#terminal-box" onclick="focusTerminal()" class="group flex items-center justify-between p-3.5 rounded-2xl bg-zinc-900/80 hover:bg-zinc-800/90 border border-white/5 hover:border-blue-500/30 transition">
+                        <div class="flex items-center gap-3">
+                            <div class="w-9 h-9 rounded-xl bg-zinc-800 flex items-center justify-center text-zinc-300 group-hover:text-blue-400 transition">
+                                <i data-lucide="terminal" class="w-4 h-4"></i>
+                            </div>
+                            <div>
+                                <div class="text-sm font-medium text-zinc-100">Interactive Terminal</div>
+                                <div class="text-xs text-zinc-400">Ketik perintah untuk info lebih lanjut</div>
+                            </div>
+                        </div>
+                        <i data-lucide="chevron-right" class="w-4 h-4 text-zinc-500 group-hover:text-white transition"></i>
+                    </a>
+                </div>
+            </section>
+
+            <!-- 4. Interactive Mini Terminal (Span 6) -->
+            <section id="terminal-box" class="bento-card rounded-3xl p-5 md:col-span-6 flex flex-col justify-between font-mono text-xs bg-zinc-950/90">
+                <div>
+                    <!-- Terminal Top Bar -->
+                    <div class="flex items-center justify-between pb-3 mb-3 border-b border-white/5">
+                        <div class="flex items-center gap-1.5">
+                            <span class="w-2.5 h-2.5 rounded-full bg-red-500/80"></span>
+                            <span class="w-2.5 h-2.5 rounded-full bg-amber-500/80"></span>
+                            <span class="w-2.5 h-2.5 rounded-full bg-emerald-500/80"></span>
+                        </div>
+                        <span class="text-[11px] text-zinc-500">syukril@ambo:~</span>
+                    </div>
+
+                    <!-- Terminal Output -->
+                    <div id="terminal-output" class="space-y-1.5 h-36 overflow-y-auto pr-1 text-zinc-300">
+                        <div class="text-emerald-400">Selamat datang di ruang digital Syukril Hakim!</div>
+                        <div class="text-zinc-400">Ketik <span class="text-amber-300">help</span> untuk melihat daftar perintah.</div>
+                    </div>
+                </div>
+
+                <!-- Terminal Input -->
+                <div class="mt-3 pt-2.5 border-t border-white/5 flex items-center gap-2">
+                    <span class="text-emerald-400 font-bold">$</span>
+                    <input 
+                        type="text" 
+                        id="terminal-input" 
+                        placeholder="ketik 'about', 'stack', atau 'clear'..." 
+                        class="w-full bg-transparent text-zinc-100 placeholder-zinc-600 focus:outline-none text-xs"
+                        autocomplete="off"
+                    >
+                </div>
+            </section>
+
+        </div>
+
+        <!-- Footer -->
+        <footer class="text-center py-3 text-xs text-zinc-500 font-mono">
+            &copy; <span id="year"></span> Syukril Hakim. Dibuat dengan kode &amp; rasa ingin tahu.
+        </footer>
+
+    </main>
+
+    <script>
+        // Inisialisasi ikon Lucide
+        lucide.createIcons();
+
+        // Set Tahun & Jam Real-time WIB
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        function updateClock() {
+            const now = new Date();
+            const options = { timeZone: 'Asia/Jakarta', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false };
+            document.getElementById('clock').textContent = now.toLocaleTimeString('id-ID', options) + ' WIB';
+        }
+        setInterval(updateClock, 1000);
+        updateClock();
+
+        // Fungsi Salin Kontak
+        function copyEmail() {
+            const contactText = "Syukril Hakim - https://sshhkimm4.github.io/ambo/";
+            navigator.clipboard.writeText(contactText).then(() => {
+                const label = document.getElementById('copy-text');
+                label.textContent = "Tersalin!";
+                setTimeout(() => {
+                    label.textContent = "Salin Kontak";
+                }, 2000);
+            });
+        }
+
+        // Fungsi Terminal Interaktif
+        const terminalInput = document.getElementById('terminal-input');
+        const terminalOutput = document.getElementById('terminal-output');
+
+        function focusTerminal() {
+            terminalInput.focus();
+        }
+
+        const commands = {
+            help: "Perintah tersedia: <span class='text-emerald-400'>about</span>, <span class='text-emerald-400'>stack</span>, <span class='text-emerald-400'>campus</span>, <span class='text-emerald-400'>clear</span>",
+            about: "Halo! Saya <b>Syukril Hakim</b>. Tertarik pada pengembangan sistem informasi, aplikasi mobile, dan eksperimen teknologi.",
+            stack: "Tech Stack: HTML/CSS, Tailwind, JavaScript, Flutter & Dart, MySQL.",
+            campus: "Program Studi Sistem Informasi - UIN Sulthan Thaha Saifuddin Jambi."
+        };
+
+        terminalInput.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') {
+                const cmd = this.value.trim().toLowerCase();
+                if (!cmd) return;
+
+                const cmdLine = document.createElement('div');
+                cmdLine.innerHTML = `<span class="text-emerald-400">$</span> <span class="text-white">${cmd}</span>`;
+                terminalOutput.appendChild(cmdLine);
+
+                if (cmd === 'clear') {
+                    terminalOutput.innerHTML = '';
+                } else if (commands[cmd]) {
+                    const resLine = document.createElement('div');
+                    resLine.className = 'text-zinc-300 pl-3';
+                    resLine.innerHTML = commands[cmd];
+                    terminalOutput.appendChild(resLine);
+                } else {
+                    const errLine = document.createElement('div');
+                    errLine.className = 'text-red-400 pl-3';
+                    errLine.textContent = `Perintah '${cmd}' tidak dikenali. Ketik 'help'.`;
+                    terminalOutput.appendChild(errLine);
+                }
+
+                this.value = '';
+                terminalOutput.scrollTop = terminalOutput.scrollHeight;
+            }
+        });
+    </script>
+</body>
+</html>
